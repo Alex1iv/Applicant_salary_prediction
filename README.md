@@ -7,7 +7,7 @@
 [Project description](README.md#Project-description)  
 [Data](README.md#Data)                                
 [Inferences](README.md#Inferences)                   
-[Project file](https://github.com/Alex1iv/sf_data_sci/blob/main/2.%20Recruitment_platform_user_profiles_EDA/Project_en.ipynb) 
+
 
 ---
 
