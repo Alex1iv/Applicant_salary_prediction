@@ -5,3 +5,6 @@ data/dst-3.0_16_1_hh_database.zip
 Project_ru.ipynb
 
 figures/hh_label.jpg
+
+# ignore all .tmp files
+.tmp
