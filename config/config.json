@@ -3,7 +3,8 @@
     "//": "Set seed value",
     "random_seed" : 42,
 
-    "models_path": "/models/"
+    "models_path": "/models/",
 
+    "alpha": 190
 
 }
