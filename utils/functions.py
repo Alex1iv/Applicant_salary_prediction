@@ -143,6 +143,20 @@ def get_currency_in_ISO_format(arg):
         return 'RUB'
     else:
         return currencies_in_ISO_dict[arg_splitted]
+    
+    
+def get_aggregated_status(arg1, arg2):
+    """
+    The get_aggregated_status function group user by wilingness for business trips and by relocation.
+    """
+    if arg1 is True and arg2 is True:
+        return 'ready_for_relocation_and_business_trips'
+    elif arg1 is False and arg2 is True:
+        return 'ready_for_relocation' 
+    elif arg1 is True and arg2 is False:
+        return 'ready_for_business_trips'
+    else:
+        return 'not_ready'
 
 def outliers_z_score_mod(data, feature, left=3, right=3, log_scale=False):
     """
@@ -338,6 +352,8 @@ def get_result():
     # Delete original features 'ЗП_сумма', 'ЗП', 'currency', 'Обновление резюме', 'close', 'proportion'
     data_merged.drop(['salary_national', 'ЗП', 'currency', 'Обновление резюме', 'close', 'proportion'], axis=1, inplace=True)
     
+    data_merged['Relocation_and_business_trip_status'] = data_merged[['Relocation','Business_trip']].apply(lambda x: get_aggregated_status(*x), axis=1)
+    
     #--------------Data cleaning--------
     data = data_merged
     
@@ -453,7 +469,7 @@ def get_result():
     X, y = data_prepared.drop('salary(rub)', axis=1, ), data_prepared['salary(rub)']
 
     # Split the data in a ratio 80/20
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=config.random_seed)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=config.random_seed)
 
     # check the shape
     print(f'X_Train: {X_train.shape} y_train: {y_train.shape}')
