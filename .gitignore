@@ -1,8 +1,7 @@
 data/dst-3.0_16_1_hh_database.zip
 
 # ignore folders
-**/__pycache__/
-**/figures_ru
+__pycache__
 
 Project_ru.ipynb
 
@@ -10,4 +9,4 @@ figures/hh_label.jpg
 
 # ignore all .tmp files
 .tmp
-
+.pyc
