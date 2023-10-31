@@ -11,7 +11,7 @@ from sklearn import metrics #метрики
 
 
 # Импортируем константы из файла config
-config = config_reader('config/config.json')
+config = config_reader('../config/config.json')
 
 def education_level(arg):
     """
