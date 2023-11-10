@@ -30,10 +30,15 @@ def education_level(arg):
     else:
         pd.NA
 
-def get_gender(arg):
-    """
-    Function get_gender takes string whch includes user's gender as the argument. The function returnes user's gender either 'm' or 'f'.
-    """
+def get_gender(arg:pd.Series)->str:
+
+    """Function get_gender takes string whch includes user's gender as the argument. 
+    Arguments:
+        _pd.Series_: value from a row of a DataFrame
+    Returns:
+        _str_: returnes user's gender either 'm' or 'f'.
+    """    
+  
     arg.split(' ') # Method split() divides the sring by space
 
     # If the string contains 'Мужчина', it returns letter 'M' else 'F'
